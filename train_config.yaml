@@ -1,0 +1,24 @@
+model:
+  patch_size: 20
+  dim: 512
+  packet_size: 1500
+  expansion_factor: 4
+  depth: 4
+  h1_class: 2
+  num_class: 14       
+  dropout: 0.3
+  batch_size: 256
+  resume: 0
+  a: 0.1
+  b: 0.8
+  c: 0.1
+  epoch_num: 70
+  learning_rate: 0.1
+  model_state_path: ./mutil-tail-for-Tor/Mutil_tail
+  optimizer_state_path: ./mutil-tail-for-Tor/Mutil_tail
+  output_file_path: ./train.txt
+
+dataset:
+  name: tor
+  train_set: ./t.csv
+  valid_set: ./v.csv
