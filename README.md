@@ -1,39 +1,81 @@
-# multi-view_multi-label_network_classification
+# Multi-view Multi-label Network Traffic Classification Based on MLP-Mixer Neural Network
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## Introduction
 
-#### 软件架构
-软件架构说明
+This repository is a PyTorch implementation of [Multi-view Multi-label Network Traffic Classification Based on MLP-Mixer Neural Network](https://arxiv.org/abs/2210.16719).
+
+Our model is constructed primarily using the [Mlp-Mixer](https://github.com/google-research/vision_transformer).
+
+### Dataset
+
+1. The USTC-TFC2016 dataset is [USTC](https://github.com/yungshenglu/USTC-TFC2016).
+
+2. The VPN-nonVPN dataset is [VPN](https://www.unb.ca/cic/datasets/vpn.html).
+
+3. The Tor-nonTor dataset is [Tor](https://www.unb.ca/cic/datasets/tor.html).
+
+## Requirement
+
+Hardware: >= 10G GPU memory
+
+Software: [PyTorch](https://pytorch.org/)>=1.0.0, python3
+
+## Getting Started
+
+### Installation
+
+1. Clone this repository.
+```
+git clone https://github.com/Anunknownresearcher/multi-view_multi-label_network_classification.git
+```
+
+2. Install Python dependencies.
+```
+pip install -r requirements.txt
+```
+
+### Implementation
+1. Download datasets (i.e. [USTC](https://github.com/yungshenglu/USTC-TFC2016)) and preprocess the dataset.
+
+```
+python precessing.py --inputpath pcap_path --pre_type 1d --outputpath output_path --max_len 1600 --dataset_type TOR
+```
+
+2. Train (Validation is included at the end of the training)
+
+The preprocessed datasset is [dataset](https://gitee.com/AACHILLSS/multi-view_multi-label_network_classification/tags).
+
+Change the root of data path in train_config.yaml and train the model:
+
+```
+python train.py
+```
+
+3. Test
+
+The trained model is [model](https://gitee.com/AACHILLSS/multi-view_multi-label_network_classification/tags).
+
+Change the root of data path in test_config.yaml and test the model:
+
+```
+python train.py
+```
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## Citation
+If you like our work and use the code or models for your research, please cite our work as follows.
+```
+@article{zheng2023multiview,
+      title={Multi-view Multi-label Anomaly Network Traffic Classification based on MLP-Mixer Neural Network}, 
+      author={Yu Zheng and Zhangxuan Dang and Chunlei Peng and Chao Yang and Xinbo Gao},
+      year={2023},
+      eprint={2210.16719},
+      url={https://arxiv.org/abs/2210.16719},
+      eprinttype = {arXiv},
+}
+```
 
 
-#### 特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
